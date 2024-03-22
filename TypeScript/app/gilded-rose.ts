@@ -52,6 +52,16 @@ export class GildedRose {
           item.sellIn --;
           break;
         case Items.Pass:
+          if (item.sellIn <= 0) {
+            item.quality = 0;
+          } else if (item.sellIn <= 5) {
+            item = increaseQuality(item, 3);
+          } else if (item.sellIn <= 10) {
+            item = increaseQuality(item, 2);
+          } else {
+            item = increaseQuality(item, 1);
+          }
+          item.sellIn --;
           break;
         case Items.Sulfuras:
           // do not change item as it is legendary
@@ -62,7 +72,7 @@ export class GildedRose {
           } else {
             item = decreaseQuality(item, 1);
           }
-          item.sellIn--;
+          item.sellIn --;
           break;
       }
 
