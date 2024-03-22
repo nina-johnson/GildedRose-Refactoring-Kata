@@ -14,6 +14,7 @@ enum Items {
   Brie = 'Aged Brie',
   Pass = 'Backstage passes to a TAFKAL80ETC concert',
   Sulfuras = 'Sulfuras, Hand of Ragnaros',
+  Conjured = 'Conjured Mana Cake',
 }
 
 const increaseQuality = (item: Item, increaseBy: number): Item => {
@@ -65,6 +66,14 @@ export class GildedRose {
           break;
         case Items.Sulfuras:
           // do not change item as it is legendary
+          break;
+        case Items.Conjured:
+          if (item.sellIn <=0) {
+            item = decreaseQuality(item, 4);
+          } else {
+            item = decreaseQuality(item, 2);
+          }
+          item.sellIn --;
           break;
         default:
           if (item.sellIn <= 0) {
