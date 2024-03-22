@@ -25,6 +25,18 @@ export class GildedRose {
 
   updateQuality() {
     for (const item of this.items) {
+
+      switch (item.name) {
+        case Items.Brie:
+          break;
+        case Items.Pass:
+          break;
+        case Items.Sulfuras:
+          break;
+        default:
+          break;
+      }
+
       if (item.name != Items.Brie && item.name != Items.Pass) {
         if (item.quality > 0) {
           if (item.name != Items.Sulfuras) {
