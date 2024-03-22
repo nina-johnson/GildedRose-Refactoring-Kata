@@ -42,7 +42,6 @@ export class GildedRose {
 
   updateQuality() {
     for (let item of this.items) {
-
       switch (item.name) {
         case Items.Brie:
           if (item.sellIn <= 0) {
@@ -68,6 +67,8 @@ export class GildedRose {
           // do not change item as it is legendary
           break;
         case Items.Conjured:
+          // making the assumption that because "Conjured" items decrease in value twice as fast,
+          // the amount of quality decreased after passing the sell by also doubles
           if (item.sellIn <=0) {
             item = decreaseQuality(item, 4);
           } else {
@@ -84,51 +85,6 @@ export class GildedRose {
           item.sellIn --;
           break;
       }
-
-
-    //   if (item.name != Items.Brie && item.name != Items.Pass) {
-    //     if (item.quality > 0) {
-    //       if (item.name != Items.Sulfuras) {
-    //         item.quality = item.quality - 1
-    //       }
-    //     }
-    //   } else {
-    //     if (item.quality < 50) {
-    //       item.quality = item.quality + 1
-    //       if (item.name == Items.Pass) {
-    //         if (item.sellIn < 11) {
-    //           if (item.quality < 50) {
-    //             item.quality = item.quality + 1
-    //           }
-    //         }
-    //         if (item.sellIn < 6) {
-    //           if (item.quality < 50) {
-    //             item.quality = item.quality + 1
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   if (item.name != Items.Sulfuras) {
-    //     item.sellIn = item.sellIn - 1;
-    //   }
-    //   if (item.sellIn < 0) {
-    //     if (item.name != Items.Brie) {
-    //       if (item.name != Items.Pass) {
-    //         if (item.quality > 0) {
-    //           if (item.name != Items.Sulfuras) {
-    //             item.quality = item.quality - 1
-    //           }
-    //         }
-    //       } else {
-    //         item.quality = item.quality - item.quality
-    //       }
-    //     } else {
-    //       if (item.quality < 50) {
-    //         item.quality = item.quality + 1
-    //       }
-    //     }
-    //   }
     }
 
     return this.items;
