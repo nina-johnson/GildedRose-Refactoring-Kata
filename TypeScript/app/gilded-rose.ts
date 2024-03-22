@@ -48,6 +48,7 @@ export class GildedRose {
         case Items.Pass:
           break;
         case Items.Sulfuras:
+          // do not change item as it is legendary
           break;
         default:
           if (item.sellIn <= 0) {
