@@ -44,6 +44,12 @@ export class GildedRose {
 
       switch (item.name) {
         case Items.Brie:
+          if (item.sellIn <= 0) {
+            item = increaseQuality(item, 2);
+          } else {
+            item = increaseQuality(item, 1);
+          }
+          item.sellIn --;
           break;
         case Items.Pass:
           break;
