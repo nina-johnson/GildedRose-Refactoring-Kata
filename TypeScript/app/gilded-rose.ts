@@ -16,6 +16,22 @@ enum Items {
   Sulfuras = 'Sulfuras, Hand of Ragnaros',
 }
 
+const increaseQuality = (item: Item, increaseBy: number): Item => {
+  item.quality += increaseBy;
+  if (item.quality >= 50) {
+    item.quality = 50;
+  }
+  return item;
+}
+
+const decreaseQuality = (item: Item, decreaseBy: number): Item => {
+  item.quality -= decreaseBy;
+  if (item.quality < 0){
+    item.quality = 0;
+  }
+  return item;
+}
+
 export class GildedRose {
   items: Array<Item>;
 
